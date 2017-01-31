@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <title>Javascript Drump Kit</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <div class="keys">
     <div class="key" data-key="65">
@@ -56,5 +58,27 @@
   <audio data-key="74" src="sounds/snare.wav"></audio>
   <audio data-key="75" src="sounds/tom.wav"></audio>
   <audio data-key="76" src="sounds/tink.wav"></audio>
+
+  <script type="text/javascript">
+    function playSound(event) {
+      const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`);
+      const key = document.querySelector(`div[data-key="${event.keyCode}"]`);
+      if (!audio) return;
+
+      key.classList.add("playing");
+      audio.currentTime = 0;
+      audio.play();
+    }
+
+    function removeTransition(event) {
+      if (event.propertyName !== 'transform') return;
+      event.target.classList.remove('playing');
+    }
+
+    const keys = Array.from(document.querySelectorAll(".key"));
+    keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+    window.addEventListener('keydown', playSound);
+  </script>
 </body>
+
 </html>
