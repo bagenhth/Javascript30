@@ -12,7 +12,6 @@
 }
 
 img {
-  margin-top: 50px;
   padding: var(--spacing);
   background-color: var(--base);
   filter: blur(var(--blur));
@@ -34,7 +33,7 @@ body {
   background-color: #193549;
 }
 
-.control {
+.controls {
   margin-bottom: 50px;
 }
 
