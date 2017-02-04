@@ -1,0 +1,43 @@
+/* =======================================================//==
+ * 要点：
+ * :root 指代根元素(html)，在其上面定义全局css变量
+ * --xxx定义一个名为xxx的css变量
+ * var(--xxx)引用定义的css变量
+ * =========================================================== */
+
+:root {
+  --base: #ffc600;
+  --spacing: 10px;
+  --blur: 10px;
+}
+
+img {
+  margin-top: 50px;
+  padding: var(--spacing);
+  background-color: var(--base);
+  filter: blur(var(--blur));
+}
+
+.h1 {
+  color: var(--base);
+}
+
+body {
+  text-align: center;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 50px;
+  font-weight: 100;
+  color: white;
+  background-color: #193549;
+}
+
+.control {
+  margin-bottom: 50px;
+}
+
+input {
+  width: 100px;
+}
